@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
+/*
+  Design system — "Serene Adriatic Coastal"
+  Calm, premium, turquoise + sandstone. Tokens are exposed to Tailwind v4 via @theme,
+  so utilities like bg-sea-600, text-foam, font-display are available everywhere.
+*/
+@theme {
+  /* Sea / Adriatic */
+  --color-ink: #0b2e3a;
+  --color-sea-900: #0b2e3a;
+  --color-sea-800: #0d4553;
+  --color-sea-700: #0f5c6b;
+  --color-sea-600: #0f7c8a;
+  --color-sea-500: #1a97a5;
+  --color-sea-400: #4fbfcb;
+  --color-sea-300: #7fd3db;
+  --color-sea-200: #a9e0e6;
+  --color-sea-100: #d7f1f3;
+
+  /* Sand */
+  --color-sand-300: #d9c3a3;
+  --color-sand-200: #e4d3b4;
+  --color-sand-100: #f4ebda;
+
+  /* Neutrals */
+  --color-foam: #f7fbfb;
+  --color-mist: #eef6f6;
+
+  /* CTA / accent */
+  --color-coral: #f0795c;
+  --color-coral-dark: #e15a3d;
+
+  /* Conditions status */
+  --color-status-good: #2f9e6f;
+  --color-status-caution: #e0a13a;
+  --color-status-danger: #d1503f;
+
+  /* Fonts (wired to next/font variables set in layout.tsx) */
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-crimson), ui-serif, Georgia, serif;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-foam);
+  --foreground: var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* ---- Animations ---- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1.5%); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes drift {
+  from { background-position: 0 0; }
+  to   { background-position: 1200px 0; }
+}
+
+/* Scroll reveal — element starts hidden, .is-visible triggers the animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out-soft), transform 0.7s var(--ease-out-soft);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kenburns { animation: kenburns 18s ease-out forwards alternate infinite; }
+.float-y { animation: float-y 5s ease-in-out infinite; }
+
+/* Utility: soft card */
+.card-soft {
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--color-sea-600) 10%, transparent);
+  box-shadow: 0 10px 40px -20px color-mix(in srgb, var(--color-sea-900) 40%, transparent);
+}
+
+/* Leaflet map sizing safety */
+.leaflet-container {
+  font-family: var(--font-sans);
+  border-radius: 1rem;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .kenburns, .float-y { animation: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

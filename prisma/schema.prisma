@@ -1,0 +1,30 @@
+// Local dev uses SQLite so the app runs with zero external setup.
+// For production on Vercel, change provider to "postgresql" and point
+// DATABASE_URL at your Neon/Supabase database, then run `npx prisma migrate deploy`.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id             String   @id @default(cuid())
+  type           String // budva-caves | kotor-cliff | rental
+  date           String // yyyy-mm-dd
+  timeSlot       String
+  adults         Int      @default(1)
+  children       Int      @default(0)
+  name           String
+  email          String
+  phone          String
+  notes          String?
+  waiverAccepted Boolean  @default(false)
+  status         String   @default("pending") // pending | confirmed | declined
+  createdAt      DateTime @default(now())
+
+  @@index([date, timeSlot, type])
+  @@index([status])
+}
