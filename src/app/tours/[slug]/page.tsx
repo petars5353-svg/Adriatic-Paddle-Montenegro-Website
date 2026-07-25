@@ -147,7 +147,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
               <Reveal delay={80}>
                 <div className="card-soft rounded-2xl p-6 text-center">
                   <div className="text-sm text-sea-700">From</div>
-                  <div className="text-4xl font-semibold text-ink">{site.currency}{tour.price}<span className="text-base font-normal text-sea-700"> / person</span></div>
+                  <div className="text-4xl font-semibold text-sea-600">{site.currency}{tour.price}<span className="text-base font-normal text-sea-700"> / person</span></div>
                   <p className="mt-2 text-xs text-sea-700/70">Slots at {tour.timeSlots.join(" & ")} · {site.season}</p>
                   <Button href={`/book?tour=${tour.bookingType}`} className="mt-4 w-full" size="lg">Request booking</Button>
                   <p className="mt-3 text-xs text-sea-700/60">No payment now — pay on the day.</p>

@@ -1,35 +1,44 @@
 @import "tailwindcss";
 
 /*
-  Design system — "Serene Adriatic Coastal"
-  Calm, premium, turquoise + sandstone. Tokens are exposed to Tailwind v4 via @theme,
-  so utilities like bg-sea-600, text-foam, font-display are available everywhere.
+  Design system — "Deep Adriatic" premium palette
+  Deep Adriatic navy + Bay Turquoise accent on warm Kotor Stone.
+  Tokens are exposed to Tailwind v4 via @theme, so utilities like bg-sea-600,
+  text-foam, font-display are available everywhere.
+
+  Token roles (semantic, not a smooth ramp):
+  - ink / sea-900        → Deep Adriatic #0B2545 (headings, footer, dark washes)
+  - sea-700              → Fjord Shadow #134074 (dark feature bands, muted body text)
+  - sea-800              → Charcoal #1A1A1A (primary body text)
+  - sea-600 + 500..100   → Bay Turquoise #139A8C accent + light tints
+  - coral / coral-dark   → Bay Turquoise (all primary CTAs)
+  - foam / mist          → Kotor Stone #F4F1EA page background + soft alt sections
 */
 @theme {
-  /* Sea / Adriatic */
-  --color-ink: #0b2e3a;
-  --color-sea-900: #0b2e3a;
-  --color-sea-800: #0d4553;
-  --color-sea-700: #0f5c6b;
-  --color-sea-600: #0f7c8a;
-  --color-sea-500: #1a97a5;
-  --color-sea-400: #4fbfcb;
-  --color-sea-300: #7fd3db;
-  --color-sea-200: #a9e0e6;
-  --color-sea-100: #d7f1f3;
+  /* Deep Adriatic + Bay Turquoise */
+  --color-ink: #0b2545;        /* Deep Adriatic — headings, nav, dark values */
+  --color-sea-900: #0b2545;    /* Deep Adriatic — footer / hero washes */
+  --color-sea-800: #1a1a1a;    /* Charcoal — primary body text */
+  --color-sea-700: #134074;    /* Fjord Shadow — dark feature bands + muted text */
+  --color-sea-600: #139a8c;    /* Bay Turquoise — interactive / accent */
+  --color-sea-500: #22a99b;
+  --color-sea-400: #4fc0b3;
+  --color-sea-300: #86d5c9;
+  --color-sea-200: #b6e6de;
+  --color-sea-100: #e0f4f0;
 
   /* Sand */
   --color-sand-300: #d9c3a3;
   --color-sand-200: #e4d3b4;
-  --color-sand-100: #f4ebda;
+  --color-sand-100: #efe8d7;
 
-  /* Neutrals */
-  --color-foam: #f7fbfb;
-  --color-mist: #eef6f6;
+  /* Neutrals — Kotor Stone */
+  --color-foam: #f4f1ea;       /* Kotor Stone — main page background */
+  --color-mist: #ece6d8;       /* deeper stone — soft alternate sections */
 
-  /* CTA / accent */
-  --color-coral: #f0795c;
-  --color-coral-dark: #e15a3d;
+  /* CTA / accent — Bay Turquoise (primary buttons + price highlights) */
+  --color-coral: #139a8c;
+  --color-coral-dark: #0e7d72;
 
   /* Conditions status */
   --color-status-good: #2f9e6f;
@@ -45,8 +54,8 @@
 }
 
 :root {
-  --background: var(--color-foam);
-  --foreground: var(--color-ink);
+  --background: var(--color-foam);   /* Kotor Stone */
+  --foreground: #1a1a1a;             /* Charcoal — high-readability body text */
 }
 
 html {
@@ -63,6 +72,15 @@ body {
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
+}
+
+/* Headings default to Deep Adriatic. Placed in @layer base so Tailwind utility
+   classes (text-white in the hero, text-sea-600 price, etc.) still override it —
+   unlayered CSS would otherwise beat layered utilities in Tailwind v4. */
+@layer base {
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
+  }
 }
 
 /* ---- Animations ---- */
