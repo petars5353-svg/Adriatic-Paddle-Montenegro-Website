@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container, Eyebrow } from "@/components/ui";
 import { BookingForm } from "@/components/BookingForm";
-import { ConditionsWidget } from "@/components/ConditionsWidget";
 import { bookingOptions, type BookingType } from "@/lib/tours";
 
 export const metadata: Metadata = {
@@ -31,12 +30,8 @@ export default async function BookPage({
           </p>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-[1fr_320px]">
+        <div className="mx-auto mt-10 max-w-2xl">
           <BookingForm defaultType={defaultType} />
-          <div className="space-y-5">
-            <ConditionsWidget location="budva" />
-            <ConditionsWidget location="kotor" />
-          </div>
         </div>
       </Container>
     </div>

@@ -23,3 +23,12 @@ export async function bookedCount(type: string, date: string, timeSlot: string):
 export function capacityFor(type: string): number {
   return optionForType(type)?.maxGroup ?? 10;
 }
+
+/** People with a CONFIRMED (accepted) booking for a given slot — used for the public "spots available" indicator. */
+export async function confirmedCount(type: string, date: string, timeSlot: string): Promise<number> {
+  const rows = await prisma.booking.findMany({
+    where: { type, date, timeSlot, status: "confirmed" },
+    select: { adults: true, children: true },
+  });
+  return rows.reduce((sum, r) => sum + r.adults + r.children, 0);
+}

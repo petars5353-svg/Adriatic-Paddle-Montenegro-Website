@@ -41,6 +41,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Please choose a future date." }, { status: 422 });
   }
 
+  // We only run tours Friday, Saturday and Sunday.
+  const weekday = new Date(`${data.date}T00:00:00`).getDay(); // 0 = Sun ... 6 = Sat
+  if (![5, 6, 0].includes(weekday)) {
+    return NextResponse.json(
+      { ok: false, error: "We only run tours Friday, Saturday and Sunday — please pick one of those days." },
+      { status: 422 },
+    );
+  }
+
   // Capacity check.
   const party = data.adults + data.children;
   const already = await bookedCount(data.type, data.date, data.timeSlot);

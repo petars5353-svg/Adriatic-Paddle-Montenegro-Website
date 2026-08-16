@@ -17,8 +17,8 @@ const VALUES = [
 ];
 
 const STATS = [
-  { n: "8+", l: "Years on the water" },
-  { n: "5,000+", l: "Happy paddlers" },
+  { n: "3+", l: "Years on the water" },
+  { n: "6", l: "Kayaks and 1 SUP" },
   { n: "4.9★", l: "Average rating" },
   { n: "2", l: "Stunning locations" },
 ];
@@ -29,26 +29,36 @@ export default function AboutPage() {
       <div className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
           <Eyebrow>Our story</Eyebrow>
-          <h1 className="mt-3 text-4xl font-semibold sm:text-5xl text-balance">Paddlers first, guides always</h1>
+          <h1 className="mt-3 text-4xl font-semibold sm:text-5xl text-balance">Hi, I&apos;m Petar</h1>
           <p className="mt-5 text-lg leading-relaxed text-sea-800/80">
-            {site.name} started with a simple belief: the best way to experience Montenegro&apos;s coast isn&apos;t
-            from a crowded beach or a tour bus — it&apos;s from the seat of a kayak, gliding into a cave or
-            drifting under the cliffs of the Bay of Kotor.
+            {site.name}{" "}started with a simple belief: the best way to experience Montenegro&apos;s coast isn&apos;t
+            from a crowded beach or a tour bus. It is from the water itself. Whether exploring a cave, or learning
+            about the picturesque old towns of Budva or Kotor, our tours provide a combination of dynamic
+            adventure, vibrant history, and the refreshing freedom of the Adriatic sea.
           </p>
           <p className="mt-4 leading-relaxed text-sea-800/80">
-            We&apos;re a small team of local, certified guides who share a love for this coastline and a
-            commitment to doing things safely, sustainably and with a lot of heart. Whether you&apos;ve never held
-            a paddle or you&apos;re here for the cliff jumps, we&apos;ll make sure you leave with a story worth
-            telling. <span className="text-sea-700/70">‹CONFIRM — replace with your real story, team &amp; credentials.›</span>
+            Over the last 25 years in Montenegro I have cultivated a deep knowledge and interest in our
+            region&apos;s rich heritage and landscapes. One day I decided to combine this with my keen interest in
+            water sports and love of nature and constant exploration. Just like that, Adriatic Paddle was born.
+          </p>
+          <p className="mt-4 leading-relaxed text-sea-800/80">
+            So whether you&apos;ve never picked a paddle or you&apos;re chasing your next big adventure, I
+            can&apos;t wait to share with you a slice of the Montenegro I&apos;ve grown to love.
           </p>
           <div className="mt-7"><Button href="/book">Paddle with us</Button></div>
         </Reveal>
         <Reveal delay={120}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl card-soft">
-            <Image src={images.about} alt="Our guides on the water" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
+            <Image src={images.aboutMe} alt="Your guide above the Bay of Kotor" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
           </div>
         </Reveal>
       </div>
+
+      <Reveal className="mt-16">
+        <div className="relative mx-auto aspect-[3/4] max-w-md overflow-hidden rounded-3xl card-soft sm:max-w-lg">
+          <Image src={images.aboutMe2} alt="Guiding a group through a sea cave" fill sizes="(max-width:640px) 100vw, 512px" className="object-cover" />
+        </div>
+      </Reveal>
 
       <div className="mt-16 grid grid-cols-2 gap-4 rounded-3xl bg-sea-700 p-8 text-center text-white sm:grid-cols-4">
         {STATS.map((s) => (

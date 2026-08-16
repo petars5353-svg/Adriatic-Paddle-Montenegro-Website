@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav, site, whatsappLink } from "@/lib/site";
-import { Logo } from "./Logo";
 import { WaveDivider } from "./WaveDivider";
 
 export function Footer() {
@@ -12,7 +12,9 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 pb-12 pt-4 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link href="/" className="flex items-center gap-2.5">
-            <Logo className="h-9 w-9 text-sea-300" />
+            <span className="relative block h-9 w-9 shrink-0 overflow-hidden rounded-full ring-2 ring-white/20">
+              <Image src="/logo-badge.png" alt={`${site.name} logo`} fill sizes="36px" className="object-cover" />
+            </span>
             <span className="font-display text-lg font-semibold text-white">{site.name}</span>
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-sea-200/80">{site.description}</p>
@@ -39,11 +41,6 @@ export function Footer() {
             <li>
               <a href={`mailto:${site.email}`} className="text-sea-200/80 hover:text-white">
                 {site.email}
-              </a>
-            </li>
-            <li>
-              <a href={`tel:${site.phoneDisplay.replace(/\s/g, "")}`} className="text-sea-200/80 hover:text-white">
-                {site.phoneDisplay}
               </a>
             </li>
             <li>

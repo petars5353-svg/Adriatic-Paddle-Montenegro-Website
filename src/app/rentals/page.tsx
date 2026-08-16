@@ -23,7 +23,7 @@ export default function RentalsPage() {
         <Container className="relative z-10 pb-14 pt-32 text-white">
           <Reveal>
             <Eyebrow>Rentals</Eyebrow>
-            <h1 className="mt-3 text-4xl font-semibold sm:text-6xl">Explore at your own pace</h1>
+            <h1 className="mt-3 text-4xl font-semibold text-foam sm:text-6xl">Explore at your own pace</h1>
             <p className="mt-4 max-w-xl text-lg text-white/85">
               Grab a kayak or paddleboard by the hour or for the whole day and discover the coast on your own
               schedule.
@@ -60,7 +60,7 @@ export default function RentalsPage() {
 
         <Reveal className="mt-12">
           <div className="rounded-3xl bg-sea-700 px-8 py-10 text-white sm:px-12">
-            <h2 className="text-2xl font-semibold">Every rental includes</h2>
+            <h2 className="text-2xl font-semibold text-foam">Every rental includes</h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {INCLUDED.map((x) => (
                 <li key={x} className="flex items-center gap-2 text-white/90"><span className="text-sea-300">✓</span>{x}</li>

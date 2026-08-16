@@ -9,17 +9,17 @@ export const faq: FaqItem[] = [
   {
     group: "Before you book",
     q: "Do I need any kayaking experience?",
-    a: "No. Our Budva tour is beginner-friendly and both tours start with a paddle & safety briefing. If you can swim and follow the guide, you'll be fine.",
+    a: "No. Our tours are beginner-friendly and start with a paddle briefing. If you can follow the guide, you'll be fine.",
   },
   {
     group: "Before you book",
     q: "What's the minimum age?",
-    a: "The Budva tour is suitable from age 8 and the Kotor tour from age 12, accompanied by an adult. Younger children can join in a double kayak with a parent — message us to arrange. ‹CONFIRM›",
+    a: "Tours are suitable from age 8, accompanied by an adult. Younger children can join in a double kayak with a parent. Please let us know in the booking details and we can arrange, to make sure everyone is safe and satisfied.",
   },
   {
     group: "Before you book",
     q: "How do I pay?",
-    a: "You request a booking online with no payment. Once we confirm your spot, you pay in person on the day (cash or card). ‹CONFIRM payment methods›",
+    a: "First request a booking online. We will confirm your spot and payment can be made on the day (cash or card).",
   },
   {
     group: "On the day",

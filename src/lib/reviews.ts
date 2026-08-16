@@ -18,7 +18,7 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "Paddling across the Bay of Kotor with the mountains all around was magical, and the cliff jumping was such a rush. Highly recommend!",
+      "Paddling across the Bay of Kotor with the mountains all around was magical. Highly recommend!",
     name: "Lukas B.",
     origin: "Germany",
     rating: 5,
@@ -26,7 +26,7 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "Perfect for our family — calm water, patient guide and our kids loved the snorkelling stop. Booking was quick and easy.",
+      "Perfect for our family, with calm water, a patient guide and our kids loved the snorkelling stop. Booking was quick and easy.",
     name: "Elena & Marco",
     origin: "Italy",
     rating: 5,
@@ -34,7 +34,7 @@ export const reviews: Review[] = [
   },
   {
     quote:
-      "Small group, gorgeous coves and genuinely lovely local guides. We rented kayaks the next day too. Faultless.",
+      "Small group, gorgeous coves and a genuinely lovely guide. Faultless.",
     name: "Sophie R.",
     origin: "France",
     rating: 5,

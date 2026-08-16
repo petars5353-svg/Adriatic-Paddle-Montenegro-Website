@@ -1,39 +1,52 @@
 /**
- * Placeholder photography (Unsplash). Replace with your own past-tour photos:
- * drop files in /public and point these at e.g. "/photos/budva-cave.jpg".
+ * Site photography.
+ * Real Montenegro / tour photos live in /public/photos (added by the owner).
+ * The two tour hero backgrounds intentionally stay on the verified Unsplash
+ * shots the owner is happy with — do not swap these without asking.
  */
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
 export const images = {
+  // Home hero slideshow
   heroSlides: [
-    u("photo-1502680390469-be75c86b636f"), // sea kayak turquoise
-    u("photo-1544551763-46a013bb70d5"), // ocean kayak aerial
-    u("photo-1530866495561-507c9faab2ed"), // coastal cliffs adriatic
+    "/photos/home-hero-budva-dusk.jpg", // Budva old town at dusk
+    "/photos/home-hero-village.jpg", // Bay of Kotor waterfront village
   ],
+  // Home "welcome / seen from the water" intro image
+  homeIntro: "/photos/home-intro-golden.jpg", // golden-hour by the water
+
   budva: {
-    // Budva old town, view from the sea (verified working).
+    // Hero background — kept as-is (owner is happy with it).
     hero: u("photo-1761403871992-578c8a9a7222"),
-    cave: u("photo-1559827260-dc66d52bef19"),
-    cove: u("photo-1468413253725-0d5181091126"),
+    // On-page photos (gallery / scene-setters)
+    citadel: "/photos/budva-citadel-kayak.jpg", // kayakers at the Budva citadel
+    town: "/photos/budva-town.jpg", // old town + Sveti Nikola from the water
+    dusk: "/photos/budva-dusk.jpg", // old town at golden hour
+    launch: "/photos/budva-launch.jpg", // launch pontoon & meeting point
+    groupFortress: "/photos/budva-group-fortress.jpg", // group paddling the fortress
   },
   kotor: {
-    // Bay of Kotor with the old town of Kotor in view (verified working).
+    // Hero background — kept as-is (owner is happy with it).
     hero: u("photo-1502824420498-012d4c4f0c42"),
-    bay: u("photo-1601581875039-e899893d520c"),
-    cliff: u("photo-1530866495561-507c9faab2ed"),
+    // On-page photos
+    aerial: "/photos/kotor-aerial.jpg", // sweeping aerial of the bay
+    flag: "/photos/kotor-flag-fjord.jpg", // Montenegro flag over the fjord
+    supLaunch: "/photos/kotor-sup-launch.jpg", // SUP at a calm launch
   },
-  rentals: u("photo-1623874514711-0f321325f318"),
-  about: u("photo-1517176118179-65244903d13c"),
+
+  rentals: "/photos/kotor-sup-launch.jpg", // SUP / calm launch
+
+  // About page
+  aboutMe: "/photos/about-me.jpg", // founder portrait above the Bay of Kotor
+  aboutMe2: "/photos/about-me-cave.jpg", // guiding inside a sea cave
+
+  // Gallery — "Moments from past tours" (owner-curated)
   gallery: [
-    u("photo-1502680390469-be75c86b636f", 1000),
-    u("photo-1544551763-46a013bb70d5", 1000),
-    u("photo-1559827260-dc66d52bef19", 1000),
-    u("photo-1468413253725-0d5181091126", 1000),
-    u("photo-1601581875039-e899893d520c", 1000),
-    u("photo-1530866495561-507c9faab2ed", 1000),
-    u("photo-1623874514711-0f321325f318", 1000),
-    u("photo-1517176118179-65244903d13c", 1000),
-    u("photo-1505459668311-8dfac7952bf0", 1000),
+    "/photos/gallery-cliff-villa.jpg", // Previous Tours
+    "/photos/gallery-cove-arrival.jpg", // Previous Tours 2
+    "/photos/budva-citadel-kayak.jpg", // Budva Tour 2 (shared)
+    "/photos/budva-group-fortress.jpg", // Previous Tours 3 (shared)
+    "/photos/gallery-cove-swim.jpg", // IMG_4515 — swim stop in a rocky cove
   ],
 };

@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { Button } from "./ui";
-import { Logo } from "./Logo";
 
 const tourLinks = nav.filter((item) => item.href.startsWith("/tours/"));
 const mainLinks = nav.filter((item) => !item.href.startsWith("/tours/"));
@@ -68,7 +68,9 @@ export function Header() {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Logo className="h-9 w-9 text-sea-600" />
+          <span className="relative block h-10 w-10 shrink-0 overflow-hidden rounded-full shadow-md ring-2 ring-white/80">
+            <Image src="/logo-badge.png" alt={`${site.name} logo`} fill sizes="40px" className="object-cover" priority />
+          </span>
           <span className="font-display text-lg font-semibold tracking-tight text-ink">
             {site.name}
           </span>

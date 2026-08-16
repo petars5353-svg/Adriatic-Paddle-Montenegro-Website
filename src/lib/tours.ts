@@ -52,7 +52,7 @@ export const tours: Tour[] = [
     price: 45,
     difficulty: "Easy · beginner friendly",
     minAge: 8,
-    maxGroup: 10,
+    maxGroup: 8,
     intro:
       "Paddle out of Budva along a dramatic limestone coastline to sea caves and secluded swimming coves, with a stop at the island locals call 'Hawaii'. A relaxed, scenic tour suitable for first-timers, led by a local guide.",
     highlights: [
@@ -77,9 +77,9 @@ export const tours: Tour[] = [
       { time: "2:20", title: "Sveti Nikola", text: "Skirt the island of Sveti Nikola before turning back toward Budva." },
       { time: "3:00", title: "Return", text: "Land back at the beach — showers and cafés nearby." },
     ],
-    timeSlots: ["09:00", "14:00"],
+    timeSlots: ["08:00 (morning paddle)", "17:00 (sunset paddle)"],
     heroImage: images.budva.hero,
-    gallery: [images.budva.cave, images.budva.cove, images.budva.hero],
+    gallery: [images.budva.citadel, images.budva.town, images.budva.dusk, images.budva.launch, images.budva.groupFortress],
     location: {
       center: [42.2786, 18.8386],
       zoom: 14,
@@ -102,7 +102,7 @@ export const tours: Tour[] = [
     price: 50,
     difficulty: "Easy–moderate",
     minAge: 12,
-    maxGroup: 10,
+    maxGroup: 8,
     intro:
       "Glide across the mirror-calm Bay of Kotor beneath towering mountains, past waterfront villages and with sweeping views of Kotor's UNESCO old town. Finish at a favourite cliff-jumping spot with graded heights — jumping is always optional.",
     highlights: [
@@ -127,9 +127,9 @@ export const tours: Tour[] = [
       { time: "2:40", title: "Return paddle", text: "Cruise back across the bay as the light softens." },
       { time: "3:30", title: "Return", text: "Land back at Muo — cafés and parking close by." },
     ],
-    timeSlots: ["10:00", "16:00"],
+    timeSlots: ["08:00 (morning paddle)", "17:00 (sunset paddle)"],
     heroImage: images.kotor.hero,
-    gallery: [images.kotor.bay, images.kotor.cliff, images.kotor.hero],
+    gallery: [images.kotor.aerial, images.kotor.flag, images.kotor.supLaunch],
     location: {
       center: [42.4247, 18.7591],
       zoom: 13,
@@ -165,7 +165,7 @@ export const rentals: RentalItem[] = [
 export const bookingOptions = [
   { value: "budva-caves", label: "Budva Coastal Caves Paddle", slots: tours[0].timeSlots, maxGroup: tours[0].maxGroup },
   { value: "kotor-cliff", label: "Kotor Bay Kayak Tour", slots: tours[1].timeSlots, maxGroup: tours[1].maxGroup },
-  { value: "rental", label: "Kayak / SUP Rental", slots: ["09:00", "11:00", "13:00", "15:00", "17:00"], maxGroup: 20 },
+  { value: "rental", label: "Kayak / SUP Rental", slots: ["08:00 (morning paddle)", "17:00 (sunset paddle)"], maxGroup: 8 },
 ] as const;
 
 export type BookingType = (typeof bookingOptions)[number]["value"];

@@ -14,10 +14,10 @@ import { images } from "@/lib/images";
 import { site } from "@/lib/site";
 
 const FEATURES = [
-  { icon: "🧭", title: "Local expert guides", text: "Born-and-raised guides who know every cave, current and quiet cove." },
+  { icon: "🧭", title: "Local expert guides", text: "Attentive guides with local knowledge of the landscapes, history and waves." },
   { icon: "👣", title: "Small groups", text: "Max 10 per tour so it stays personal, relaxed and safe." },
-  { icon: "🦺", title: "Safety first", text: "Quality kayaks, life jackets for all and constant conditions monitoring." },
-  { icon: "🌿", title: "Leave-no-trace", text: "We paddle lightly — protecting the coastline we love to share." },
+  { icon: "🦺", title: "Safety first", text: "Quality kayaks, new equipment, and constant monitoring of conditions." },
+  { icon: "🌿", title: "Leave-no-trace", text: "We paddle lightly, protecting the coastline we love to share." },
 ];
 
 export default function HomePage() {
@@ -34,24 +34,30 @@ export default function HomePage() {
           <Reveal>
             <Eyebrow>Welcome</Eyebrow>
             <h2 className="mt-3 text-3xl font-semibold sm:text-4xl text-balance">
-              Montenegro&apos;s coastline, seen the way it should be — from the water.
+              Montenegro&apos;s coastline, seen the way it should be, from the water.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-sea-800/80">
-              {site.name} runs small-group sea kayak and paddleboard tours in two of the Adriatic&apos;s most
+              {site.name}{" "}runs small-group sea kayak and paddleboard tours in two of the Adriatic&apos;s most
               stunning settings: the caves and coves of <strong>Budva</strong> and the mountain-ringed{" "}
               <strong>Bay of Kotor</strong>. Whether it&apos;s your first time in a kayak or you&apos;re chasing
               cliff jumps, we&apos;ll get you there safely — and grinning.
             </p>
             <div className="mt-6 flex gap-3">
-              <Button href="/about" variant="secondary">Our story</Button>
-              <Button href="/book" variant="ghost">Book a tour</Button>
+              <Button href="/about" variant="ghost">Our story</Button>
+              <Button href="/book" variant="secondary">Book a tour</Button>
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl card-soft">
-              <Image src={images.about} alt="Kayakers on the Adriatic coast" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
-            </div>
-          </Reveal>
+          <div className="overflow-hidden rounded-3xl card-soft">
+            <Image
+              src={images.homeIntro}
+              alt="Golden hour on the Bay of Kotor"
+              width={1350}
+              height={1800}
+              sizes="(max-width:768px) 100vw, 50vw"
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
         </div>
       </Container>
 
@@ -80,7 +86,7 @@ export default function HomePage() {
 
       {/* Why us */}
       <Container className="py-16">
-        <Reveal><SectionHeading eyebrow="Why paddle with us" title="Small groups, big smiles, zero worries" center /></Reveal>
+        <Reveal><SectionHeading eyebrow="Why paddle with us" title="Small groups, big adventures" center /></Reveal>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f, i) => (
             <Reveal key={f.title} delay={i * 90}>
@@ -94,24 +100,6 @@ export default function HomePage() {
         </div>
       </Container>
 
-      {/* Rentals teaser */}
-      <Container className="pb-16">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-sea-700 px-8 py-12 text-white sm:px-12">
-            <Image src={images.rentals} alt="" fill sizes="100vw" className="object-cover opacity-25" />
-            <div className="relative max-w-lg">
-              <Eyebrow>Rentals</Eyebrow>
-              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Prefer to explore on your own?</h2>
-              <p className="mt-3 text-white/85">
-                Rent single or double kayaks and stand-up paddleboards by the hour or the day. Life jackets and
-                a quick briefing included.
-              </p>
-              <div className="mt-6"><Button href="/rentals">See rental rates</Button></div>
-            </div>
-          </div>
-        </Reveal>
-      </Container>
-
       {/* Reviews */}
       <div className="bg-sand-100 py-20">
         <Container>
@@ -122,7 +110,7 @@ export default function HomePage() {
 
       {/* Gallery teaser */}
       <Container className="py-16">
-        <Reveal><SectionHeading eyebrow="From past tours" title="A few moments on the water" intro="Real coastline, real guests. Explore the full gallery." /></Reveal>
+        <Reveal><SectionHeading eyebrow="From past tours" title="A few moments on the water" /></Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {images.gallery.slice(0, 4).map((src, i) => (
             <Reveal key={i} delay={i * 80}>
@@ -151,13 +139,13 @@ export default function HomePage() {
         <WaveDivider className="text-foam" />
         <Container className="py-16 text-center text-white">
           <Reveal>
-            <h2 className="text-3xl font-semibold sm:text-4xl">Ready to hit the water?</h2>
+            <h2 className="text-3xl font-semibold text-foam sm:text-4xl">Ready to hit the water?</h2>
             <p className="mx-auto mt-3 max-w-xl text-white/85">
-              Reserve your spot in under two minutes. No payment needed to book — we&apos;ll confirm by email.
+              Reserve your spot using the link below. No payment needed to book, email confirmation will be sent
+              out shortly.
             </p>
             <div className="mt-7 flex justify-center gap-3">
-              <Button href="/book" size="lg">Book a tour</Button>
-              <Button href="/rentals" variant="ghost" size="lg">Rent a kayak</Button>
+              <Button href="/book" variant="ghost" size="lg">Book a tour</Button>
             </div>
           </Reveal>
         </Container>

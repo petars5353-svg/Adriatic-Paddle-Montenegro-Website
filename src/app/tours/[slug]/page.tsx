@@ -52,7 +52,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
               {tour.place}, Montenegro
             </span>
-            <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl">{tour.title}</h1>
+            <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-foam sm:text-6xl">{tour.title}</h1>
             <p className="mt-4 max-w-xl text-lg text-white/85">{tour.tagline}</p>
             <div className="mt-8 grid max-w-lg grid-cols-2 gap-3 sm:grid-cols-4">
               <Fact label="Duration" value={`${tour.durationHours} hrs`} />
